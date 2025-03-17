@@ -2,7 +2,7 @@ import Hero from "../../Components/Hero";
 import Header from "../../Components/Header";
 import About from "../../Components/About";
 import Project from "../../Components/Project";
-import Contect from "../../Components/Contect";
+import Contact from "../../Components/Contact";
 import Footer from "../../Components/Footer";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         <Hero />
         <About/>
         <Project/>
-        <Contect/>
+        <Contact/>
       </div>
       <Footer/>
       </main>
