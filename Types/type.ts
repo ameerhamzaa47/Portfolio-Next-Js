@@ -2,10 +2,14 @@ export default interface TabButtonProps {
     active: boolean;
     selectTab: () => void;
     children: React.ReactNode;
+    imgUrl: string;
+    title: string; 
+    description: string;
 }
 
 
 export interface ProjectCardProps {
+    id?: number ;
     imgUrl: string;
     title: string;
     description: string;
