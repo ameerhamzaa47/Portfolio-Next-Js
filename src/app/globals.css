@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Scrollbar Hidden */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.bg-\[radial-gradient\(ellipse_at_center\,_var\(--\)\)\] {
+  background-image: radial-gradient(ellipse at center, var(--));
+}
