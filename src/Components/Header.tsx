@@ -6,8 +6,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   return (
-    <nav className='fixed top-0 left-0 right-0 z-10 bg-[#121212] opacity-100'>
-      <div className='flex flex-wrap items-center justify-between mx-auto p-6'>
+    <nav className='fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] opacity-100'>
+      <div className='flex container lg:py-4 flex-wrap items-center justify-between mx-auto p-6'>
         <Link href={'/'} className='text-2xl md:text-4xl text-white font-semibold'>Portfolio</Link>
         {/* hamburger Icon */}
         <div className='block md:hidden'>

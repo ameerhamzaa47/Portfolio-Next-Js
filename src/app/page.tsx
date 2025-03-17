@@ -4,6 +4,7 @@ import About from "../Components/About";
 import Project from "../Components/Project";
 import Contact from "../Components/Contact";
 import Footer from "../Components/Footer";
+import Achievement from "../Components/Achievement";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
     <Header/>
       <div className="container mx-auto px-12 mt-20 py-4">
         <Hero />
+        <Achievement/>
         <About/>
         <Project/>
         <Contact/>
