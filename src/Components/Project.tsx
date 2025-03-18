@@ -1,9 +1,10 @@
 "use client"
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { ProjectCardProps, ProjectTagButtonProps } from '../../Types/type'
 import ProjectData from '../../Data/ProjectData'
 import { CodeBracketIcon, EyeIcon } from '@heroicons/react/24/solid'
+import {motion, useInView} from 'framer-motion'
 
 // Project Card Component
 const ProjectCard = ({ imgUrl, title, description, gitUrl, PreviewUrl }: ProjectCardProps) => {
@@ -41,6 +42,8 @@ const ProjectTagButton = ({ name, onClick, isSelected }: ProjectTagButtonProps) 
 // Project Component
 const Project = () => {
     const [selectedTag, setSelectedTag] = useState('All')
+    const ref = useRef(null)
+    const isInView = useInView(ref,{once: true})
 
     const handleTagChange = (newTag: string) => {
         setSelectedTag(newTag)
@@ -50,8 +53,13 @@ const Project = () => {
         project.tag.includes(selectedTag)
     )
 
+    const cardVarients = {
+        initial : {y: 50, opacity: 0},
+        animate : {y: 0, opacity: 1}
+    }
+
     return (
-        <>
+        <section>
             <h2 className='text-white text-4xl font-bold text-center mt-4'>My Projects</h2>
             <div className='text-white flex flex-row justify-center items-center gap-2 py-6'>
                 <ProjectTagButton
@@ -70,12 +78,14 @@ const Project = () => {
                 isSelected={selectedTag === 'Next.Js'}
                 />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {filteredProjects.map((project: ProjectCardProps) => (
+            <ul ref={ref} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                {filteredProjects.map((project: ProjectCardProps,index) => (
+                    <motion.li variants={cardVarients} initial='initial' animate={isInView ? 'animate' : 'initial'} transition={{duration:0.3, delay:index * 0.4 }} key={index}>
                     <ProjectCard key={project.id} imgUrl={project.imgUrl} title={project.title} description={project.description} gitUrl={project.gitUrl} PreviewUrl={project.PreviewUrl} />
+                    </motion.li>
                 ))}
-            </div>
-        </>
+            </ul>
+        </section>
     )
 }
 

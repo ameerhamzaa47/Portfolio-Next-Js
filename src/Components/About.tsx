@@ -3,16 +3,27 @@ import Image from "next/image"
 import { useState, useTransition } from "react";
 import TabButtonProps from "../../Types/type";
 import { TAB_DATA } from "../../Data/AboutData";
+import { motion } from 'framer-motion';
+
+const varients = {
+    default: { width: 0 },
+    active: { width: "calc(100% - 0.75rem)" },
+}
 
 // Tab Component 
 
 const TabButton = ({ active, selectTab, children }: TabButtonProps) => {
-    const buttonClasses = active ? 'text-white border-b border-purple-500' : 'text-[#ADB7BE]';
+    const buttonClasses = active ? 'text-white' : 'text-[#ADB7BE]';
     return (
         <button onClick={selectTab}>
             <p className={`mr-3 font-semibold hover:text-white cursor-pointer ${buttonClasses}`}>
                 {children}
             </p>
+            <motion.div
+            animate={active ? "active" : "default"}
+            variants={varients}
+            className='h-1 bg-purple-500 mr-3'
+            ></motion.div>
         </button>
     )
 }
@@ -21,7 +32,7 @@ const About = () => {
     const [tab, setTab] = useState("skills");
     const [isPending, startTransition] = useTransition();
     console.log(isPending);
-    
+
     const handleTab = (id: string) => {
         startTransition(() => {
             setTab(id);
