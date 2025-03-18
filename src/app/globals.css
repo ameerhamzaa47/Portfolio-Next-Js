@@ -40,3 +40,7 @@ body {
 .bg-\[radial-gradient\(ellipse_at_center\,_var\(--\)\)\] {
   background-image: radial-gradient(ellipse at center, var(--));
 }
+
+body{
+  font-family: Satoshi-Regular;
+}

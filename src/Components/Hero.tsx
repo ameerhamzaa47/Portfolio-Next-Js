@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
-        <section className="lg:py-8">
+        <section id="home-section" className="lg:py-8">
             <div className='grid grid-cols-1 sm:grid-cols-12'>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}

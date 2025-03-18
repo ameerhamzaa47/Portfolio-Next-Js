@@ -9,7 +9,7 @@ import {motion, useInView} from 'framer-motion'
 // Project Card Component
 const ProjectCard = ({ imgUrl, title, description, gitUrl, PreviewUrl }: ProjectCardProps) => {
     return (
-        <div className='p-4'>
+        <div className='p-1 md:p-4 w-80 lg:w-96'>
     <div className='h-72 rounded-t-xl relative group overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl' style={{ backgroundImage: `url(${imgUrl})`, backgroundSize: 'cover' }}>
         <div className='items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] opacity-0 hidden group-hover:flex group-hover:opacity-80 transition-all duration-500'>
             <Link href={gitUrl} target='_blank' className='h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/Link'>
@@ -59,7 +59,7 @@ const Project = () => {
     }
 
     return (
-        <section>
+        <section id='projects-section'>
             <h2 className='text-white text-4xl font-bold text-center mt-4'>My Projects</h2>
             <div className='text-white flex flex-row justify-center items-center gap-2 py-6'>
                 <ProjectTagButton

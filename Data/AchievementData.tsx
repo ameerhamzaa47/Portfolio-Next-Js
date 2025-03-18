@@ -14,7 +14,7 @@
     {
         id:3,
         matric: "Awards",
-        value: "2",
+        value: "3",
     },
     {
         id:4,
